@@ -50,7 +50,7 @@ const SignIn = () => {
                     <div className="error-msg">
                         {error.error}
                     </div>
-                    <button onClick={handleSubmit} className="sign-in-button"><i
+                    <button className="sign-in-button"><i
                         className="fa fa-user-circle"></i>Sign In
                     </button>
                 </form>

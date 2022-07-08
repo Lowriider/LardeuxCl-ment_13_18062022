@@ -1,7 +1,6 @@
 import axios from "axios";
-import {useState} from "react";
-import {userAuthSucceeded, loginSlice, userAuthFailed} from "../Features/auth/loginSlice";
-import {userProfileSucceeded} from "../Features/profile/profileSlice";
+import {userAuthSucceeded, userAuthFailed} from "../Features/auth/loginSlice";
+import {userProfileFailed, userProfileSucceeded, userProfileUpdate} from "../Features/profile/profileSlice";
 
 
 export const handleAuthRequest = (email, password) => async (dispatch) => {
@@ -37,16 +36,30 @@ export const userProfile = (token) => async (dispatch) => {
                 },
             }
         )
-        console.log(response)
         dispatch(userProfileSucceeded(response.data))
     } catch (error) {
-        // dispatch({
-        //     type: USER_PROFILE_FAIL,
-        //     payload:
-        //         error.response && error.response.data.message
-        //             ? error.response.data.message
-        //             : error.message,
-        // })
+        dispatch(userProfileFailed(error.response.data.message))
         console.log(error)
     }
 }
+
+export const updateProfile = (token, newFirstName, newLastName) => async (dispatch) => {
+        try {
+
+            const response = await axios.put(
+                'http://localhost:3001/api/v1/user/profile',
+                { firstName: newFirstName, lastName: newLastName },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            )
+            dispatch(userProfileUpdate(response.data))
+        } catch (error) {
+            console.log(error)
+            dispatch(userProfileFailed(error.response.data.message))
+        }
+    }
+

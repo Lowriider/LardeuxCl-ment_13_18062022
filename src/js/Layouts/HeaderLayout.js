@@ -17,14 +17,14 @@ const HeaderLayout = () => {
 
     return (
         <nav className="main-nav">
-            <Link className="main-nav-logo" to="/">
+            <a className="main-nav-logo" onClick={logoutHandler}>
                 <img
                     className="main-nav-logo-image"
                     src="/images/argentBankLogo.png"
                     alt="Argent Bank Logo"
                 />
                 <h1 className="sr-only">Argent Bank</h1>
-            </Link>
+            </a>
             {
                 !userAuth.isAuth ?
                     <div>
