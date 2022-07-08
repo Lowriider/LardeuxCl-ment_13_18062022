@@ -274,7 +274,11 @@ body {
   background-color: #00bc77;
   color: #fff;
 }
-
+.error-msg {
+  margin-top: 16px;
+  color: red;
+  font-weight: bold;
+}
 @media (min-width: 720px) {
   .account {
     flex-direction: row;

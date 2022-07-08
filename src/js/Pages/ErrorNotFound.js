@@ -1,6 +1,6 @@
 const ErrorNotFound = () => {
   return (
-    <div></div>
+    <div>404</div>
   )
 }
 export default ErrorNotFound

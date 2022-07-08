@@ -1,4 +1,4 @@
-const Index = () => {
+const Home = () => {
     return (
         <main>
             <div className="hero" style={{backgroundImage: "url('/images/bank-tree.jpeg')"}}>
@@ -47,4 +47,4 @@ const Index = () => {
         </main>
     )
 }
-export default Index
+export default Home

@@ -1,7 +1,20 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {userLogout} from "../Features/auth/loginSlice";
 
 const HeaderLayout = () => {
-    const isConnected = false
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const userAuth = useSelector((state) =>  state.login)
+
+    const userData = useSelector((state) => state.profile)
+
+    const logoutHandler = () => {
+        dispatch(userLogout())
+        navigate('/')
+    }
+
     return (
         <nav className="main-nav">
             <Link className="main-nav-logo" to="/">
@@ -13,7 +26,7 @@ const HeaderLayout = () => {
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
             {
-                !isConnected ?
+                !userAuth.isAuth ?
                     <div>
                         <Link className="main-nav-item" to={`/sign-in`}>
                             <i className="fa fa-user-circle"></i>
@@ -21,11 +34,11 @@ const HeaderLayout = () => {
                         </Link>
                     </div> :
                     <div>
-                        <a className="main-nav-item" href="./user.html">
+                        <Link className="main-nav-item" to={`/profile`}>
                             <i className="fa fa-user-circle"></i>
-                            Tony
-                        </a>
-                        <a className="main-nav-item" href="./index.html">
+                            {userData.firstName}
+                        </Link>
+                        <a className="main-nav-item" onClick={logoutHandler}>
                             <i className="fa fa-sign-out"></i>
                             Sign Out
                         </a>
