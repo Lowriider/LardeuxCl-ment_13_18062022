@@ -14,7 +14,7 @@ const SignIn = () => {
 
     const userAuth = useSelector((state) => state.login)
 
-   const error = useSelector((state) => state.login)
+    const error = useSelector((state) => state.login)
 
     const handleSubmit = (e) => {
         e.preventDefault()

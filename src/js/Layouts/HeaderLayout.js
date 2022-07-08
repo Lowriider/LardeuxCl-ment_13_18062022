@@ -6,7 +6,7 @@ const HeaderLayout = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const userAuth = useSelector((state) =>  state.login)
+    const userAuth = useSelector((state) => state.login)
 
     const userData = useSelector((state) => state.profile)
 
