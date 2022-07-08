@@ -63,3 +63,7 @@ export const updateProfile = (token, newFirstName, newLastName) => async (dispat
         }
     }
 
+export const logout = () => async (dispatch) => {
+    dispatch(userLogout())
+    dispatch(userProfileReset)
+}

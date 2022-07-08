@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {userLogout} from "../Features/auth/loginSlice";
+import {logout} from "../Components/Request";
 
 const HeaderLayout = () => {
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ const HeaderLayout = () => {
     const userData = useSelector((state) => state.profile)
 
     const logoutHandler = () => {
-        dispatch(userLogout())
+        dispatch(logout())
         navigate('/')
     }
 
