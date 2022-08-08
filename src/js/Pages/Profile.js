@@ -49,17 +49,17 @@ const Profile = () => {
                             <h1>Welcome back</h1>
                             <form onSubmit={handleSubmitUpdateProfile}>
                                 <div>
-                                    <input type="text" placeholder="Tony"
+                                    <input className="input-update" type="text" placeholder={userData.firstName}
                                            onChange={(e) => setFormData({...formData, firstName: e.target.value})}/>
-                                    <input type="text" placeholder="Jarvis"
+                                    <input className="input-update" type="text" placeholder={userData.lastName}
                                            onChange={(e) => setFormData({...formData, lastName: e.target.value})}/>
                                 </div>
                                 <div className="error-profile-msg">
                                     {error.error}{formData.validation_error}
                                 </div>
                                 <div>
-                                    <button>Save</button>
-                                    <button>Cancel</button>
+                                    <button className="update-button">Save</button>
+                                    <button className="cancel-button">Cancel</button>
                                 </div>
                             </form>
                         </>

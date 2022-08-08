@@ -133,6 +133,24 @@ body {
     }
 }
 
+.input-update:first-child {
+    margin-right: 20px;
+}
+.input-update {
+    height: 25px;
+    padding-left: 8px;
+}
+.update-button:first-child {
+
+    margin-right: 20px;
+}
+
+.update-button, .cancel-button {
+    height: 25px;
+    width: 120px;
+    border: 1px solid blue;
+    color: blue;
+}
 .feature-icon {
     width: 100px;
     border: 10px solid #00bc77;
