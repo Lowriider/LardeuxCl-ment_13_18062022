@@ -30,6 +30,7 @@ const Profile = () => {
         e.preventDefault()
         if (formData.firstName.length > 2 && formData.lastName.length > 2) {
             dispatch(updateProfile(userAuth.token, formData.firstName, formData.lastName))
+            setIsEditProfilVisible(false)
         } else {
             setFormData({...formData, validation_error: "Firstname/lastname must be at least 3 characters long"})
         }
@@ -47,7 +48,7 @@ const Profile = () => {
                         </> :
                         <>
                             <h1>Welcome back</h1>
-                            <form onSubmit={handleSubmitUpdateProfile}>
+                            <div>
                                 <div>
                                     <input className="input-update" type="text" placeholder={userData.firstName}
                                            onChange={(e) => setFormData({...formData, firstName: e.target.value})}/>
@@ -58,10 +59,10 @@ const Profile = () => {
                                     {error.error}{formData.validation_error}
                                 </div>
                                 <div>
-                                    <button className="update-button">Save</button>
-                                    <button className="cancel-button">Cancel</button>
+                                    <button onClick={handleSubmitUpdateProfile} className="update-button">Save</button>
+                                    <button onClick={() => setIsEditProfilVisible(false)} className="cancel-button">Cancel</button>
                                 </div>
-                            </form>
+                            </div>
                         </>
                 }
             </div>
